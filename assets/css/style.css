@@ -1,0 +1,18 @@
+.jumbotron {
+  padding: 2rem 1rem; /* Padding on the top and bottom, smaller padding on the sides */
+  margin-bottom: 2rem; /* Margin bottom for spacing between jumbotrons */
+  background-color: #e9ecef; /* Default background color */
+  border-radius: 0.3rem; /* Rounded corners */
+}
+
+button.close{
+  border: none;
+    background: none;
+    font-size: 25px;
+    color: gray;
+    font-weight: 500;
+}
+
+.form-group{
+  margin: 20px 0;
+}
