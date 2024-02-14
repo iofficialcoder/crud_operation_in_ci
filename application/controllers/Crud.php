@@ -16,6 +16,7 @@ class Crud extends CI_Controller
         $this->form_validation->set_rules('name', 'Product Name', 'trim|required');
         $this->form_validation->set_rules('price', 'Product Price', 'trim|required');
         $this->form_validation->set_rules('quantity', 'Product Quantity', 'trim|required');
+        // $this->form_validation->set_rules('image_url', 'Product Image', 'trim|required');
 
         if ($this->form_validation->run() == false) {
 
@@ -32,7 +33,8 @@ class Crud extends CI_Controller
 
                 'name' => $this->input->post('name'),
                 'price' => $this->input->post('price'),
-                'quantity' => $this->input->post('quantity')
+                'quantity' => $this->input->post('quantity'),
+                'image_url' => $this->input->post('image_url')
             ]);
 
             if ($result) {
@@ -54,6 +56,7 @@ class Crud extends CI_Controller
         $this->form_validation->set_rules('name', 'Product Name', 'trim|required');
         $this->form_validation->set_rules('price', 'Product Price', 'trim|required');
         $this->form_validation->set_rules('quantity', 'Product Quantity', 'trim|required');
+        // $this->form_validation->set_rules('image_url', 'Product Image', 'trim|required');
 
         if ($this->form_validation->run() == false) {
 
@@ -70,7 +73,8 @@ class Crud extends CI_Controller
 
                 'name' => $this->input->post('name'),
                 'price' => $this->input->post('price'),
-                'quantity' => $this->input->post('quantity')
+                'quantity' => $this->input->post('quantity'),
+                'image_url' => $this->input->post('image_url')
             ], $id);
 
             if ($result) {

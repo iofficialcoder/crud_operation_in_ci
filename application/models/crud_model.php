@@ -11,6 +11,23 @@ class Crud_model extends CI_Model
         }
     }
 
+    public function updateProductImage($product_id, $image_url)
+    {
+        $this->db->where('id', $product_id);
+        $this->db->update('products', array('image_url' => $image_url));
+    }
+
+    public function getProductImage($product_id)
+    {
+        $query = $this->db->get_where('products', array('id' => $product_id));
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            return $row->image_url;
+        } else {
+            return null;
+        }
+    }
+
     public function insertProduct($data)
     {
 

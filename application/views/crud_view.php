@@ -32,6 +32,7 @@
                     <th>Product Name</th>
                     <th>Product Price</th>
                     <th>Product Quantity</th>
+                    <th>Product Image</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -47,6 +48,9 @@
                         </td>
                         <td>
                             <?php echo $products->quantity; ?>
+                        </td>
+                        <td>
+                            <img src="<?php base_url(); ?>assets/img/<?php echo $products->image_url; ?>" alt="Product Image" class="image-post">
                         </td>
                         <td>
                             <a href="<?php base_url(); ?>crud/editProduct/<?php echo $products->id; ?>" class="btn btn-success">Edit</a>
@@ -89,6 +93,11 @@
                         <div class="form-group">
                             <label for="quantity">Product's Quantity: </label>
                             <input type="text" name="quantity" placeholder="Enter Quantity quantity" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image_url">Product's Image: </label>
+                            <input type="file" name="image_url" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">

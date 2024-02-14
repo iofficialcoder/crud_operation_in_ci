@@ -16,3 +16,10 @@ button.close{
 .form-group{
   margin: 20px 0;
 }
+
+.image-post{
+  width: 100px;
+  aspect-ratio: 3 / 3;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}

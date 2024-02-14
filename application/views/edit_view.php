@@ -38,6 +38,11 @@
                 <input type="text" name="quantity" placeholder="Enter Product Quantity" class="form-control" value="<?php echo $singleProduct->quantity; ?>">
             </div>
 
+            <div class="form-group">
+                <label for="image_url">Product's Image: </label>
+                <input type="file" name="image_url" class="form-control" value="<?php echo $singleProduct->image_url; ?>">
+            </div>
+
             <input type="submit" name="edit" value="update" class="btn btn-primary">
         </form>
     </div>
