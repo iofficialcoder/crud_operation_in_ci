@@ -22,6 +22,7 @@
 
 
     <div class="container">
+
         <div class="clear-fix">
             <h3 style="float:left;">All Product</h3>
             <a href="#" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#exampleModalCenter">Add Product</a>
@@ -29,6 +30,7 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
+                    <!-- <th>S. No.</th> -->
                     <th>Product Name</th>
                     <th>Product Price</th>
                     <th>Product Quantity</th>
@@ -39,7 +41,8 @@
             <tbody>
                 <?php foreach ($product_details as $products) : ?>
 
-                    <tr>
+                    <tr style="vertical-align: baseline;">
+
                         <td>
                             <?php echo $products->name; ?>
                         </td>
@@ -60,13 +63,25 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <?php if ($page > 0) : ?>
+                    <li class="page-item"><a class="page-link" href="<?php echo base_url('crud/index/') . ($page - 1); ?>">Previous</a></li>
+                <?php endif; ?>
+
+                <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+                    <li class="page-item <?php echo ($page == $i - 1) ? 'active' : ''; ?>"><a class="page-link" href="<?php echo base_url('crud/index/') . ($i - 1); ?>"><?php echo $i; ?></a></li>
+                <?php endfor; ?>
+
+                <?php if ($page < $total_pages - 1) : ?>
+                    <li class="page-item"><a class="page-link" href="<?php echo base_url('crud/index/') . ($page + 1); ?>">Next</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
     </div>
 
-    <!-- <pre>
-    <?php
-    print_r($product_details);
-    ?>
-    </pre> -->
 
     <!-- Button trigger modal -->
 
@@ -138,7 +153,6 @@
         </div>
 
     <?php endif; ?>
-
 
 
 

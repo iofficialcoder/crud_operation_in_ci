@@ -3,13 +3,28 @@
 class Crud_model extends CI_Model
 {
 
-    public function getAllProducts()
+
+    public function countAllProducts()
     {
+        return $this->db->count_all('products');
+    }
+
+    public function getAllProducts($limit, $start)
+    {
+        $this->db->limit($limit, $start);
         $query = $this->db->get('products');
         if ($query) {
             return $query->result();
         }
     }
+
+    // public function getAllProducts()
+    // {
+    //     $query = $this->db->get('products');
+    //     if ($query) {
+    //         return $query->result();
+    //     }
+    // }
 
     public function updateProductImage($product_id, $image_url)
     {

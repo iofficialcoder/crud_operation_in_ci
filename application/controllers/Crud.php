@@ -3,9 +3,22 @@
 class Crud extends CI_Controller
 {
 
-    public function index()
+    public function index($page = 0)
     {
-        $data['product_details'] = $this->crud_model->getAllProducts();
+        $this->load->library('pagination');
+        $this->load->model('crud_model');
+
+        $config['base_url'] = base_url('crud/index');
+        $config['total_rows'] = $this->crud_model->countAllProducts();
+        $config['per_page'] = 4; // Number of records per page
+
+        $this->pagination->initialize($config);
+
+        $data['product_details'] = $this->crud_model->getAllProducts($config['per_page'], $page);
+        $data['pagination_links'] = $this->pagination->create_links();
+        $data['page'] = $page;
+        $data['total_pages'] = ceil($config['total_rows'] / $config['per_page']);
+
         $this->load->view('crud_view', $data);
     }
 
